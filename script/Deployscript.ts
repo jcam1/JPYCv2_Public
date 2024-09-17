@@ -1,19 +1,39 @@
 import '@nomicfoundation/hardhat-viem';
 import hre from 'hardhat';
-import { Account, getContract  } from 'viem';
+import { Account, getContract } from 'viem';
 import { anvil } from 'viem/chains';
+import dotenv from 'dotenv';
+import yargs from 'yargs';
+
+dotenv.config();
 
 // anvil
 // 別のターミナルを開く
 // pnpm hardhat test src/tests/jpyc-tests/jpyc-balance2.test.ts --network localhost
+const argv = yargs(process.argv.slice(2))
+  .option('minterAddress', {
+    type: 'string',
+    description: 'Address of the minter'
+  })
+  .option('toAddress', {
+    type: 'string',
+    description: 'Address to mint tokens to'
+  })
+  .option('amount', {
+    type: 'number',
+    description: 'Amount of tokens to mint'
+  })
+  .argv;
+
 
 let JPYC_ADMIN_ACCOUNT: Account;
-(async () => {
+
+async function initializeAdminAccount() {
   const [jpycAdmin] = await hre.viem.getWalletClients({
     chain: anvil
-  })
+  });
   JPYC_ADMIN_ACCOUNT = jpycAdmin.account;
-})();
+}
 
 async function deployJpyc() {
   const jpycImpl = await hre.viem.deployContract("FiatTokenV1", []);
@@ -85,19 +105,23 @@ async function mintTokens(jpyc: any, minterAddress: string, toAddress: string, a
 
 //デプロイ用、mint用のスクリプト　to addressの指定をお願いします。
 async function main() {
+  await initializeAdminAccount();
   const { jpyc } = await deployJpyc();
   const symbol = await jpyc.read.symbol();
   const name = await jpyc.read.name();
-  const minterAddress = await jpyc.read.minter();
-  const toAddress = "";
+
+  const minterAddress = argv.minterAddress || process.env.MINTER_ADDRESS || JPYC_ADMIN_ACCOUNT.address;
+  const toAddress = argv.toAddress || process.env.TO_ADDRESS || "0x70997970C51812dc3A010C7d01b50e0d17dc79C8";
+  const amount = BigInt(argv.amount || process.env.MINT_AMOUNT || 1000000);
 
 
-  await mintTokens(jpyc,minterAddress as string, toAddress, 1000000n);
+  await mintTokens(jpyc,minterAddress as string, toAddress, amount);
 
   console.log("token deployed:", jpyc.address);
   console.log("token symbol:", symbol);
   console.log("token name:", name);
   console.log("to address:",toAddress);
+  console.log("to address balance:",await jpyc.read.balanceOf([toAddress]));
 
 }
 

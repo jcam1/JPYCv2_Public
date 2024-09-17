@@ -7,3 +7,9 @@ coverage.json
 /coverage
 /gasEstimate
 /.VSCoderCounter
+build/
+node_modules/
+node_modules
+.pnpm-store/
+.vscode/
+pnpm-lock.yaml

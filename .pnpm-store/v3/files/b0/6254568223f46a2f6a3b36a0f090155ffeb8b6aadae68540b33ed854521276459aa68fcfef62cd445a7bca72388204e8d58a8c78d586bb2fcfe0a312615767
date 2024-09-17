@@ -1,0 +1,1 @@
+{"version":3,"file":"parse-type-id.d.ts","sourceRoot":"","sources":["../../src/utils/parse-type-id.ts"],"names":[],"mappings":"AAIA,MAAM,WAAW,YAAY;IAC3B,EAAE,EAAE,MAAM,CAAC;IACX,IAAI,EAAE,MAAM,CAAC;IACb,IAAI,CAAC,EAAE,YAAY,EAAE,CAAC;IACtB,IAAI,CAAC,EAAE,MAAM,CAAC;IACd,IAAI,CAAC,EAAE,YAAY,EAAE,CAAC;CACvB;AAqBD,wBAAgB,WAAW,CAAC,EAAE,EAAE,MAAM,GAAG,YAAY,CAwDpD"}

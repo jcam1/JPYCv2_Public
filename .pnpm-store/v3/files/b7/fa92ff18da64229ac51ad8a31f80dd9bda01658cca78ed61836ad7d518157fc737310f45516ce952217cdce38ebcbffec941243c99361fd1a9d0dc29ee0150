@@ -1,0 +1,1 @@
+{"version":3,"file":"error.d.ts","sourceRoot":"","sources":["../../src/validate/error.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,eAAe,EAAE,MAAM,OAAO,CAAC;AACxC,OAAO,EAAE,aAAa,EAAE,MAAM,UAAU,CAAC;AAGzC,qBAAa,gBAAiB,SAAQ,aAAa;IAG/C,QAAQ,CAAC,MAAM,EAAE,eAAe,EAAE;gBADlC,YAAY,EAAE,MAAM,EACX,MAAM,EAAE,eAAe,EAAE;CAMrC;AAED,qBAAa,2BAA4B,SAAQ,aAAa;;CAI7D"}

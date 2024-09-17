@@ -1,0 +1,1 @@
+{"version":3,"file":"platform.d.ts","sourceRoot":"","sources":["../../src/api/platform.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,oCAAoC,CAAC;AAEnE,qBAAa,iBAAkB,SAAQ,aAAa;IAClD,SAAS,CAAC,SAAS,IAAI,MAAM;IAI7B,SAAS,CAAC,eAAe,IAAI,MAAM;IAInC,SAAS,CAAC,SAAS,IAAI,MAAM;CAG9B"}

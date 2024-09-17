@@ -1,0 +1,1 @@
+{"version":3,"file":"stub-provider.d.ts","sourceRoot":"","sources":["../src/stub-provider.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,cAAc,EAAE,MAAM,YAAY,CAAC;AAS5C,wBAAgB,YAAY,CAAC,OAAO,SAAe,EAAE,aAAa,SAAuB;;qCAiB9C,OAAO,CAAC,cAAc,CAAC;;;wBA2B1C,MAAM;4BAGF,MAAM;yBAGT,MAAM;2BAGJ,MAAM;mBAGd,MAAM;iBAGF,MAAM,WAAW,OAAO,EAAE,GAAG,OAAO,CAAC,GAAG,CAAC;EAgD/D"}

@@ -1,0 +1,55 @@
+{
+  "name": "@openzeppelin/hardhat-upgrades",
+  "version": "1.28.0",
+  "description": "",
+  "repository": "https://github.com/OpenZeppelin/openzeppelin-upgrades/tree/master/packages/plugin-hardhat",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "files": [
+    "/dist",
+    "/src"
+  ],
+  "bin": {
+    "migrate-oz-cli-project": "dist/scripts/migrate-oz-cli-project.js"
+  },
+  "scripts": {
+    "clean": "rimraf dist *.tsbuildinfo",
+    "compile": "tsc -b",
+    "prepare": "yarn clean && yarn compile",
+    "test": "tsc -b && bash scripts/test.sh",
+    "test:watch": "fgbg 'bash scripts/test.sh --watch' 'tsc -b --watch' --",
+    "version": "node ../../scripts/bump-changelog.js"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
+    "@openzeppelin/contracts": "4.8.3",
+    "@openzeppelin/contracts-upgradeable": "4.8.3",
+    "@types/mocha": "^7.0.2",
+    "ava": "^5.0.0",
+    "fgbg": "^0.1.4",
+    "hardhat": "^2.0.2",
+    "promisified": "^0.5.0",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "@openzeppelin/defender-base-client": "^1.46.0",
+    "@openzeppelin/platform-deploy-client": "^0.8.0",
+    "@openzeppelin/upgrades-core": "^1.27.0",
+    "chalk": "^4.1.0",
+    "debug": "^4.1.1",
+    "proper-lockfile": "^4.1.1"
+  },
+  "peerDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
+    "ethers": "^5.0.5",
+    "hardhat": "^2.0.2"
+  },
+  "peerDependenciesMeta": {
+    "@nomiclabs/harhdat-etherscan": {
+      "optional": true
+    }
+  },
+  "gitHead": "58f7978f68fea6ba9fe7dea5364fb9412e177071"
+}

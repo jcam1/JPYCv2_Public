@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: ./local.Dockerfile
+    tty: true
+    user: ${UID}:${GID} # ホストと同じユーザーで実行
+    ports:
+      - 8545:8545 # contract RPC
+    volumes:
+      - .:/root/project
+       

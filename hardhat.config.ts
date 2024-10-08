@@ -39,6 +39,12 @@ const config: HardhatUserConfig = {
           mnemonic: "test test test test test test test test test test test junk",
         },
       },
+  
+      mainnet: {
+        url: `https://eth-mainnet.g.alchemy.com/v2/Bee-BKs-NFFdtrZUEcjMoPQwqI08J0NS`,
+        chainId: 1,
+        accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+      },
     },
   };
   

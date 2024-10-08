@@ -85,11 +85,7 @@ async function mintTokens(jpyc: any, minterAddress: string, toAddress: string, a
       account: minterAddress,
     });
 
-   
-
-
     console.log("token minted");
-   
     console.log("mint address:", toAddress);
     console.log("tx:", tx);
     console.log("mint amount:", amount.toString());

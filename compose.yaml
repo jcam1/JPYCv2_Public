@@ -1,13 +1,22 @@
 services:
-
   app:
     build:
       context: .
       dockerfile: ./local.Dockerfile
+      args:
+        UID: ${UID:-1001}
+        GID: ${GID:-1001}
     tty: true
-    user: ${UID}:${GID} # ホストと同じユーザーで実行
+    user: "${UID:-1001}:${GID:-1001}"
     ports:
       - 8545:8545 # contract RPC
     volumes:
-      - .:/root/project
-       
+      - .:/workspace
+      - vscode-server:/home/appuser/.vscode-server
+    environment:
+      - HOME=/home/appuser
+      - SHELL=/bin/bash
+    working_dir: /workspace
+
+volumes:
+  vscode-server:

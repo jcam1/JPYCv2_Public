@@ -13,3 +13,5 @@ node_modules
 .pnpm-store/
 .vscode/
 pnpm-lock.yaml
+.vscode-server
+.cursor-server

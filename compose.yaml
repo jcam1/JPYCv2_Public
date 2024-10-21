@@ -11,12 +11,14 @@ services:
     ports:
       - 8545:8545 # contract RPC
     volumes:
-      - .:/workspace
+      - .:/workspace:cached
       - vscode-server:/home/appuser/.vscode-server
+      - ~/.gitconfig:/home/appuser/.gitconfig:ro
     environment:
-      - HOME=/home/appuser
+      - HOME=/workspace
       - SHELL=/bin/bash
     working_dir: /workspace
+    command: ["/bin/bash"]
 
 volumes:
   vscode-server:

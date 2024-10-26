@@ -1,3 +1,4 @@
+
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-viem";
 import '@nomiclabs/hardhat-truffle5';
@@ -6,7 +7,7 @@ import '@openzeppelin/hardhat-upgrades';
 import 'hardhat-contract-sizer';
 import 'solidity-coverage';
 import 'dotenv';
- 
+
 const config: HardhatUserConfig = {
     solidity: {
       compilers: [
@@ -37,6 +38,12 @@ const config: HardhatUserConfig = {
         accounts: {
           mnemonic: "test test test test test test test test test test test junk",
         },
+      },
+  
+      mainnet: {
+        url: `https://eth-mainnet.g.alchemy.com/v2/Bee-BKs-NFFdtrZUEcjMoPQwqI08J0NS`,
+        chainId: 1,
+        accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
       },
     },
   };
